@@ -46,9 +46,13 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
     setDate(getDate());
     setTime(getTime());
 
-    setInterval(() => {
+    const interval = setInterval(() => {
       setTime(getTime());
     }, 60000);
+
+    return () => {
+      clearInterval(interval);
+    }
   }, []);
 
   return (
