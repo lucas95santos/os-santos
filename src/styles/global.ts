@@ -1,5 +1,6 @@
 const globalStyles = {
   colors: {
+    primaryColor: '#2F2E41',
     backgroundColor: '#f0f0fa',
     headerColor: '#086E9A',
     titleColor: '#555555',
