@@ -8,7 +8,8 @@ const globalStyles = {
     buttonBackgroundColor: '#086E9A',
     buttonTextColor: '#fff',
     linkColor: '#086E9A',
-    iconColor: '#ffffff'
+    iconColor: '#ffffff',
+    dangerColor: '#EE4949'
   }
 };
 
