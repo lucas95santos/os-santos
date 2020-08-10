@@ -15,6 +15,8 @@ import {
 } from '@expo-google-fonts/poppins';
 
 export default function App() {
+  const isSignedIn = false;
+
   const [fontsLoaded] = useFonts({
     Poppins_300Light,
     Poppins_400Regular,
@@ -29,8 +31,8 @@ export default function App() {
   return (
     <>
       <StatusBar
-        barStyle="light-content"
-        backgroundColor={`${globalStyles.colors.headerColor}`}
+        barStyle={isSignedIn ? 'light-content' : 'dark-content'}
+        backgroundColor={isSignedIn ? globalStyles.colors.headerColor : globalStyles.colors.backgroundColor}
         translucent
       />
       <Routes />

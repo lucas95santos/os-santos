@@ -76,7 +76,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
                 <Icon name="arrow-left" size={32} color={`${globalStyles.colors.iconColor}`} />
               )}
           </TouchableOpacity>
-          <Image source={require('../../assets/logo_horizontal.png')} />
+          <Image source={require('../../assets/images/logo_horizontal.png')} />
         </View>
         <View style={styles.infoArea}>
           <Text style={styles.title}>{title}</Text>
