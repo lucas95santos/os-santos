@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 // global styles
 import globalStyles from '../../styles/global';
 // styles
 import styles from './styles';
 // icons
 import { Feather as Icon } from '@expo/vector-icons';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 interface Props {
   showMenu: boolean;
@@ -16,6 +18,12 @@ type MenuProps = Props;
 
 const Menu: React.FunctionComponent<MenuProps> = (props) => {
   const { showMenu, handleMenu } = props;
+
+  const navigation = useNavigation();
+
+  const goTo = (component: string) => {
+    navigation.navigate(component);
+  }
 
   return (
     <View
@@ -48,9 +56,11 @@ const Menu: React.FunctionComponent<MenuProps> = (props) => {
           <Text style={styles.menuItemText}>Dúvidas</Text>
         </View>
       </View>
-      <View style={styles.menuBottom}>
-        <Icon name="power" size={24} color={`${globalStyles.colors.dangerColor}`} />
-        <Text style={styles.menuItemText}>Sair</Text>
+      <View>
+        <TouchableOpacity onPress={() => goTo('SignIn')} style={styles.menuBottom}>
+          <Icon name="power" size={24} color={`${globalStyles.colors.dangerColor}`} />
+          <Text style={styles.menuItemText}>Sair</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

@@ -34,7 +34,7 @@ const ResetPassword: React.FunctionComponent = () => {
 
         <Button
           text="Solicitar reset"
-          action={() => goTo('ResetMessage')}
+          action={() => goTo('SignIn')}
           size={{ width: '100%', height: 48 }}
           bgColor={globalStyles.colors.buttonBackgroundColor}
           color={globalStyles.colors.buttonTextColor}
