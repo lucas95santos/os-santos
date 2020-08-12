@@ -38,7 +38,7 @@ const SignIn: React.FunctionComponent = () => {
 
         <Button
           text="Esqueci a senha"
-          action={() => goTo('Reset')}
+          action={() => goTo('ResetPassword')}
           size={{ width: 132, height: 16 }}
           color={globalStyles.colors.linkColor}
         />
