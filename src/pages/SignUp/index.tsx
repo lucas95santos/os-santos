@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 // components
-import { Input, Button } from '../../components';
+import { UnsignedHeader, Input, Button } from '../../components';
 // global styles
 import globalStyles from '../../styles/global';
 // styles
@@ -22,19 +22,7 @@ const SignUp: React.FunctionComponent = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.topArea}>
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={styles.back}
-        >
-          <Icon
-            name="arrow-left"
-            size={32}
-            color={`${globalStyles.colors.headerColor}`}
-          />
-        </TouchableOpacity>
-        <Image source={require('../../assets/images/logo.png')} />
-      </View>
+      <UnsignedHeader />
       <View style={styles.form}>
         <Input
           placeholder="E-mail"
