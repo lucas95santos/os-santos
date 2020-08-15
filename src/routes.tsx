@@ -3,7 +3,15 @@ import { Easing } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 // pages
-import { SignIn, SignUp, ResetPassword, Home, Orders, NewOrder } from './pages';
+import {
+  SignIn,
+  SignUp,
+  ResetPassword,
+  Home,
+  Orders,
+  NewOrder,
+  Account
+} from './pages';
 // global styles
 import globalStyles from './styles/global';
 
@@ -46,12 +54,17 @@ const Routes = () => {
           }
         }}
       >
+        {/* unsigned routes */}
         <AppStack.Screen name="SignIn" component={SignIn} />
         <AppStack.Screen name="SignUp" component={SignUp} />
         <AppStack.Screen name="ResetPassword" component={ResetPassword} />
+        {/* end unsigned routes */}
+        {/* signed routes */}
         <AppStack.Screen name="Home" component={Home} />
         <AppStack.Screen name="Orders" component={Orders} />
         <AppStack.Screen name="NewOrder" component={NewOrder} />
+        <AppStack.Screen name="Account" component={Account} />
+        {/* end signed routes */}
       </AppStack.Navigator>
     </NavigationContainer>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 // global styles
 import globalStyles from '../../styles/global';
@@ -7,7 +7,6 @@ import globalStyles from '../../styles/global';
 import styles from './styles';
 // icons
 import { Feather as Icon } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 interface Props {
   showMenu: boolean;
@@ -43,17 +42,23 @@ const Menu: React.FunctionComponent<MenuProps> = (props) => {
         />
       </View>
       <View style={styles.menuOptions}>
-        <View style={styles.menuItem}>
-          <Icon name="user" size={24} color={`${globalStyles.colors.iconColor}`} />
-          <Text style={styles.menuItemText}>Conta</Text>
+        <View>
+          <TouchableOpacity onPress={() => goTo('Account')} style={styles.menuItem}>
+            <Icon name="user" size={24} color={`${globalStyles.colors.iconColor}`} />
+            <Text style={styles.menuItemText}>Conta</Text>
+          </TouchableOpacity>
         </View>
-        <View style={styles.menuItem}>
-          <Icon name="lock" size={24} color={`${globalStyles.colors.iconColor}`} />
-          <Text style={styles.menuItemText}>Alterar senha</Text>
+        <View>
+          <TouchableOpacity onPress={() => goTo('ChangePassword')} style={styles.menuItem}>
+            <Icon name="lock" size={24} color={`${globalStyles.colors.iconColor}`} />
+            <Text style={styles.menuItemText}>Alterar senha</Text>
+          </TouchableOpacity>
         </View>
-        <View style={styles.menuItem}>
-          <Icon name="help-circle" size={24} color={`${globalStyles.colors.iconColor}`} />
-          <Text style={styles.menuItemText}>Dúvidas</Text>
+        <View>
+          <TouchableOpacity onPress={() => goTo('Questions')} style={styles.menuItem}>
+            <Icon name="help-circle" size={24} color={`${globalStyles.colors.iconColor}`} />
+            <Text style={styles.menuItemText}>Dúvidas</Text>
+          </TouchableOpacity>
         </View>
       </View>
       <View>
