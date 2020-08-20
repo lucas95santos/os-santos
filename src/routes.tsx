@@ -10,7 +10,8 @@ import {
   Home,
   Orders,
   NewOrder,
-  Account
+  Account,
+  ChangePassword
 } from './pages';
 // global styles
 import globalStyles from './styles/global';
@@ -64,6 +65,7 @@ const Routes = () => {
         <AppStack.Screen name="Orders" component={Orders} />
         <AppStack.Screen name="NewOrder" component={NewOrder} />
         <AppStack.Screen name="Account" component={Account} />
+        <AppStack.Screen name="ChangePassword" component={ChangePassword} />
         {/* end signed routes */}
       </AppStack.Navigator>
     </NavigationContainer>

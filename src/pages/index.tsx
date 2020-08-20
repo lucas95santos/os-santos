@@ -7,6 +7,7 @@ import Home from './Home';
 import Orders from './Orders';
 import NewOrder from './NewOrder';
 import Account from './Account';
+import ChangePassword from './ChangePassword';
 
 export {
   Home,
@@ -15,5 +16,6 @@ export {
   SignIn,
   SignUp,
   ResetPassword,
-  Account
+  Account,
+  ChangePassword
 };

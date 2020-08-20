@@ -21,6 +21,7 @@ const Menu: React.FunctionComponent<MenuProps> = (props) => {
   const navigation = useNavigation();
 
   const goTo = (component: string) => {
+    handleMenu(false);
     navigation.navigate(component);
   }
 
