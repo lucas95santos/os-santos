@@ -30,7 +30,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
   const navigation = useNavigation();
 
   const handleMenu = () => {
-
+    setMenuOpen(true)
   }
 
   const goBack = () => {
@@ -70,7 +70,6 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
                 name="menu"
                 size={32}
                 color={`${globalStyles.colors.iconColor}`}
-                onPress={() => setMenuOpen(true)}
               />
             ) : (
                 <Icon name="arrow-left" size={32} color={`${globalStyles.colors.iconColor}`} />
