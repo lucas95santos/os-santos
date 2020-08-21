@@ -13,6 +13,10 @@ const Account: React.FunctionComponent = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
 
+  const handleSubmit = () => {
+    // TODO: criar lógica para alterar a senha do usuário
+  }
+
   return (
     <View style={styles.container}>
       <Header
@@ -50,7 +54,7 @@ const Account: React.FunctionComponent = () => {
 
         <Button
           text="Salvar informações"
-          action={() => {}}
+          action={handleSubmit}
           size={{ width: '100%', height: 48 }}
           bgColor={globalStyles.colors.buttonBackgroundColor}
           color={globalStyles.colors.buttonTextColor}
