@@ -14,7 +14,7 @@ const Account: React.FunctionComponent = () => {
   const [phone, setPhone] = useState('');
 
   const handleSubmit = () => {
-    // TODO: criar lógica para alterar a senha do usuário
+    // TODO: criar lógica para salvar os dados do usuário
   }
 
   return (

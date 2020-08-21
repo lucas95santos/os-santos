@@ -8,6 +8,7 @@ import Orders from './Orders';
 import NewOrder from './NewOrder';
 import Account from './Account';
 import ChangePassword from './ChangePassword';
+import Questions from './Questions';
 
 export {
   Home,
@@ -17,5 +18,6 @@ export {
   SignUp,
   ResetPassword,
   Account,
-  ChangePassword
+  ChangePassword,
+  Questions
 };

@@ -8,6 +8,7 @@ interface Props {
   style?: object;
   value: any;
   handleChange: Function;
+  multiline?: boolean;
 }
 
 interface StyleProps {
@@ -21,6 +22,7 @@ const Input: React.FunctionComponent<InputProps> = (props) => {
     placeholder,
     value,
     handleChange,
+    multiline,
     style,
   } = props;
 
@@ -36,6 +38,7 @@ const Input: React.FunctionComponent<InputProps> = (props) => {
       onChangeText={text => handleChange(text)}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
+      multiline={multiline}
     />
   );
 }
