@@ -19,9 +19,9 @@
 <br />
 
 <div align="center">
-  <img style="width: 200px; max-height: 350px; object-fit: contain;" src="./src/assets/images/github/splash.png" alt="OS Santos" />
-  <img style="width: 200px; max-height: 350px; object-fit: contain;" src="./src/assets/images/github/login.png" alt="OS Santos" />
-  <img style="width: 200px; max-height: 350px; object-fit: contain;" src="./src/assets/images/github/home.png" alt="OS Santos" />
+  <img style="max-width: 200px; max-height: 350px; object-fit: contain;" src="./src/assets/images/github/splash.png" alt="OS Santos" />
+  <img style="max-width: 200px; max-height: 350px; object-fit: contain;" src="./src/assets/images/github/login.png" alt="OS Santos" />
+  <img style="max-width: 200px; max-height: 350px; object-fit: contain;" src="./src/assets/images/github/home.png" alt="OS Santos" />
 </div>
 
 <br />
