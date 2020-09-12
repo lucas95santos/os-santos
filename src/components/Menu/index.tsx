@@ -1,6 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+// redux
+import { useDispatch } from 'react-redux';
+import { signOut } from '../../store/modules/auth/actions';
 // global styles
 import globalStyles from '../../styles/global';
 // styles
@@ -18,11 +21,17 @@ type MenuProps = Props;
 const Menu: React.FunctionComponent<MenuProps> = (props) => {
   const { showMenu, handleMenu } = props;
 
+  const dispatch = useDispatch();
+
   const navigation = useNavigation();
 
   const goTo = (component: string) => {
     handleMenu(false);
     navigation.navigate(component);
+  }
+
+  const handleSignOut = () => {
+    dispatch(signOut());
   }
 
   return (
@@ -63,7 +72,7 @@ const Menu: React.FunctionComponent<MenuProps> = (props) => {
         </View>
       </View>
       <View>
-        <TouchableOpacity onPress={() => goTo('SignIn')} style={styles.menuBottom}>
+        <TouchableOpacity onPress={handleSignOut} style={styles.menuBottom}>
           <Icon name="power" size={24} color={`${globalStyles.colors.dangerColor}`} />
           <Text style={styles.menuItemText}>Sair</Text>
         </TouchableOpacity>
