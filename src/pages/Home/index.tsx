@@ -1,6 +1,9 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+// redux
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 // components
 import { Header, Button } from '../../components';
 // global styles
@@ -16,6 +19,7 @@ interface Props {
 type HomeProps = Props;
 
 const Home: React.FunctionComponent<HomeProps> = (props) => {
+  const profile = useSelector((state: RootState) => state.user.profile);
   const navigation = useNavigation();
 
   const goTo = (component: string) => {
@@ -24,7 +28,10 @@ const Home: React.FunctionComponent<HomeProps> = (props) => {
 
   return (
     <View style={styles.container}>
-      <Header title="Boa tarde, Usuário" hasMenu />
+      <Header
+        title={`Boa tarde, ${profile.firstName ? profile.firstName : 'Usuário'}`}
+        hasMenu
+      />
       <View style={styles.mainContent}>
         <View style={styles.titleArea}>
           <Text style={styles.title}>Últimas ordens</Text>
