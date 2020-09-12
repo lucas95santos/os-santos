@@ -1,5 +1,4 @@
-// import storage from 'redux-persist/lib/storage';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { persistReducer } from 'redux-persist';
 
 // TODO: criar interface para reducers
