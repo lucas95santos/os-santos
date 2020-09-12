@@ -1,6 +1,9 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { PersistGate } from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
 import { AppLoading } from 'expo';
+// store
+import { store, persistor } from './src/store/index';
 // routes
 import Routes from './src/routes';
 // global styles
@@ -15,8 +18,6 @@ import {
 } from '@expo-google-fonts/poppins';
 
 export default function App() {
-  const isSignedIn = false;
-
   const [fontsLoaded] = useFonts({
     Poppins_300Light,
     Poppins_400Regular,
@@ -29,13 +30,10 @@ export default function App() {
   }
 
   return (
-    <>
-      <StatusBar
-        barStyle={isSignedIn ? 'light-content' : 'dark-content'}
-        backgroundColor={isSignedIn ? globalStyles.colors.headerColor : globalStyles.colors.backgroundColor}
-        translucent
-      />
-      <Routes />
-    </>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Routes />
+      </PersistGate>
+    </Provider>
   );
 }
