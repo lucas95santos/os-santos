@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Image, Text } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { View, Image, Text, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 // redux
 import { useDispatch } from 'react-redux';
@@ -14,6 +14,8 @@ import styles from './styles';
 const SignIn: React.FunctionComponent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const passwordRef = useRef<TextInput>(null);
 
   const dispatch = useDispatch();
   const navigation = useNavigation();
@@ -37,13 +39,24 @@ const SignIn: React.FunctionComponent = () => {
           value={email}
           handleChange={setEmail}
           style={styles.formInput}
+          keyboardType="email-address"
+          autoCapitalize="none"
+          autoCorrect={false}
+          returnKeyType="next"
+          onSubmitEditing={() => {
+            passwordRef.current?.focus()
+          }}
         />
 
         <Input
+          ref={passwordRef}
           placeholder="Senha"
           value={password}
           handleChange={setPassword}
           style={styles.formInput}
+          secureTextEntry
+          returnKeyType="send"
+          onSubmitEditing={handleSignIn}
         />
 
         <Button

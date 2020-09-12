@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { TextInput } from 'react-native';
+import React, { useState, forwardRef } from 'react';
+import { TextInput, TextInputProps } from 'react-native';
 // styles
 import styles from './styles';
 
-interface Props {
+interface Props extends TextInputProps {
   placeholder?: string;
   style?: object;
   value: any;
@@ -15,15 +15,20 @@ interface StyleProps {
 
 }
 
+interface InputRef {
+  focus(): void;
+}
+
 type InputProps = Props & StyleProps;
 
-const Input: React.FunctionComponent<InputProps> = (props) => {
+const Input: React.RefForwardingComponent<InputRef, InputProps> = (props, ref) => {
   const {
     placeholder,
     value,
     handleChange,
     multiline,
     style,
+    ...rest
   } = props;
 
   const [focused, setFocused] = useState(false);
@@ -35,12 +40,14 @@ const Input: React.FunctionComponent<InputProps> = (props) => {
       style={[styles(styleProps).input, focused ? styles(styleProps).inputFocus : null, style]}
       placeholder={placeholder}
       value={value}
+      ref={ref as any}
       onChangeText={text => handleChange(text)}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
       multiline={multiline}
+      {...rest}
     />
   );
 }
 
-export default Input;
+export default forwardRef(Input);
