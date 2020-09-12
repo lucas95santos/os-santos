@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { View, Image, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+// redux
+import { useDispatch } from 'react-redux';
+import { signInRequest } from '../../store/modules/auth/actions';
 // components
 import { Input, Button } from '../../components';
 // global styles
@@ -12,10 +15,17 @@ const SignIn: React.FunctionComponent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const dispatch = useDispatch();
   const navigation = useNavigation();
 
   const goTo = (component: string) => {
     navigation.navigate(component);
+  }
+
+  const handleSignIn = () => {
+    if (email !== '' && password !== '') {
+      dispatch(signInRequest(email, password));
+    }
   }
 
   return (
@@ -45,7 +55,7 @@ const SignIn: React.FunctionComponent = () => {
 
         <Button
           text="Entrar"
-          action={() => goTo('Home')}
+          action={handleSignIn}
           size={{ width: '100%', height: 48 }}
           bgColor={globalStyles.colors.buttonBackgroundColor}
           color={globalStyles.colors.buttonTextColor}
