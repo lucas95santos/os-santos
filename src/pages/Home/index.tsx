@@ -29,7 +29,7 @@ const Home: React.FunctionComponent<HomeProps> = (props) => {
   return (
     <View style={styles.container}>
       <Header
-        title={`Boa tarde, ${profile.firstName ? profile.firstName : 'Usuário'}`}
+        title={`${profile.firstName ? profile.firstName : 'Usuário'}`}
         hasMenu
       />
       <View style={styles.mainContent}>

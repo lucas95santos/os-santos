@@ -11,6 +11,8 @@ import globalStyles from '../../styles/global';
 import styles from './styles';
 // icons
 import { Feather as Icon } from '@expo/vector-icons';
+// utils
+import generatingGreetings from '../../utils/generateGreetings';
 
 interface Props {
   title: string;
@@ -78,7 +80,9 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
           <Image source={require('../../assets/images/logo_horizontal.png')} />
         </View>
         <View style={styles.infoArea}>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.title}>
+            {hasMenu ? `${generatingGreetings(time)}, ${title}` : title}
+          </Text>
           <View style={styles.infoAreaDetails}>
             <View style={styles.infoAreaDetailsItem}>
               <Icon name="calendar" size={16} color={`${globalStyles.colors.iconColor}`} />
