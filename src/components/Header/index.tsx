@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import moment from 'moment';
-import 'moment/locale/pt-br';
+// hooks
+import useDateTime from '../../hooks/useDateTime';
 // components
 import Menu from '../Menu';
 // global styles
@@ -25,8 +25,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
   // props
   const { title, hasMenu } = props;
   // states
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+  const [date, time] = useDateTime();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navigation = useNavigation();
@@ -38,27 +37,6 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
   const goBack = () => {
     navigation.goBack();
   }
-
-  const getDate = () => {
-    return moment().format('LL');
-  }
-
-  const getTime = () => {
-    return moment().format('LT');
-  }
-
-  useEffect(() => {
-    setDate(getDate());
-    setTime(getTime());
-
-    const interval = setInterval(() => {
-      setTime(getTime());
-    }, 60000);
-
-    return () => {
-      clearInterval(interval);
-    }
-  }, []);
 
   return (
     <>
