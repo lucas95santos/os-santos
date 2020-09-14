@@ -49,8 +49,8 @@
 
 <br />
 
-- [ ] User registration
-- [ ] User authentication
+- [x] User registration
+- [x] User authentication
 - [ ] Orders list
 - [ ] Order creation
 - [ ] Digital signature
