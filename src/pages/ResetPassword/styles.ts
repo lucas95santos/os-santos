@@ -4,6 +4,9 @@ import Constant from 'expo-constants';
 import globalStyles from '../../styles/global';
 
 const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1
+  },
   container: {
     flex: 1,
     paddingTop: 40 + Constant.statusBarHeight,

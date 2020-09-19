@@ -1,14 +1,19 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import Constant from 'expo-constants';
 
 const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1
+  },
   container: {
     flex: 1,
+    height: Dimensions.get('window').height + 40,
     paddingTop: 40 + Constant.statusBarHeight,
     padding: 32,
     alignItems: 'center'
   },
   form: {
+    flex: 1,
     width: '100%',
     marginTop: 64
   },

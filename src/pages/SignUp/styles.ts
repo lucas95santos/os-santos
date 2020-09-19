@@ -2,6 +2,9 @@ import { StyleSheet } from 'react-native';
 import Constant from 'expo-constants';
 
 const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1
+  },
   container: {
     flex: 1,
     paddingTop: 40 + Constant.statusBarHeight,

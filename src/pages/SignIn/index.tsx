@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { View, Image, Text, TextInput } from 'react-native';
+import { View, Image, Text, TextInput, ScrollView, KeyboardAvoidingView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 // redux
 import { useDispatch } from 'react-redux';
@@ -31,62 +31,66 @@ const SignIn: React.FunctionComponent = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <Image source={require('../../assets/images/logo.png')} />
-      <View style={styles.form}>
-        <Input
-          placeholder="E-mail"
-          value={email}
-          handleChange={setEmail}
-          style={styles.formInput}
-          keyboardType="email-address"
-          autoCapitalize="none"
-          autoCorrect={false}
-          returnKeyType="next"
-          onSubmitEditing={() => {
-            passwordRef.current?.focus()
-          }}
-        />
+    <ScrollView style={styles.scrollView}>
+      <KeyboardAvoidingView
+        style={styles.container}
+      >
+        <Image source={require('../../assets/images/logo.png')} />
+        <View style={styles.form}>
+          <Input
+            placeholder="E-mail"
+            value={email}
+            handleChange={setEmail}
+            style={styles.formInput}
+            keyboardType="email-address"
+            autoCapitalize="none"
+            autoCorrect={false}
+            returnKeyType="next"
+            onSubmitEditing={() => {
+              passwordRef.current?.focus()
+            }}
+          />
 
-        <Input
-          ref={passwordRef}
-          placeholder="Senha"
-          value={password}
-          handleChange={setPassword}
-          style={styles.formInput}
-          secureTextEntry
-          returnKeyType="send"
-          onSubmitEditing={handleSignIn}
-        />
+          <Input
+            ref={passwordRef}
+            placeholder="Senha"
+            value={password}
+            handleChange={setPassword}
+            style={styles.formInput}
+            secureTextEntry
+            returnKeyType="send"
+            onSubmitEditing={handleSignIn}
+          />
 
-        <Button
-          text="Esqueci a senha"
-          action={() => goTo('ResetPassword')}
-          size={{ width: 132, height: 16 }}
-          color={globalStyles.colors.linkColor}
-        />
+          <Button
+            text="Esqueci a senha"
+            action={() => goTo('ResetPassword')}
+            size={{ width: 132, height: 16 }}
+            color={globalStyles.colors.linkColor}
+          />
 
-        <Button
-          text="Entrar"
-          action={handleSignIn}
-          size={{ width: '100%', height: 48 }}
-          bgColor={globalStyles.colors.buttonBackgroundColor}
-          color={globalStyles.colors.buttonTextColor}
-          textIsUpper
-          style={styles.formButton}
-        />
-      </View>
-      <View style={styles.signUpArea}>
-        <Text style={styles.signUpAreaText}>Não tem conta?</Text>
-        <Button
-          text="Cadastre-se"
-          action={() => goTo('SignUp')}
-          size={{ width: 106, height: 16 }}
-          color={globalStyles.colors.linkColor}
-          style={styles.signUpAreaButton}
-        />
-      </View>
-    </View>
+          <Button
+            text="Entrar"
+            action={handleSignIn}
+            size={{ width: '100%', height: 48 }}
+            bgColor={globalStyles.colors.buttonBackgroundColor}
+            color={globalStyles.colors.buttonTextColor}
+            textIsUpper
+            style={styles.formButton}
+          />
+        </View>
+        <View style={styles.signUpArea}>
+          <Text style={styles.signUpAreaText}>Não tem conta?</Text>
+          <Button
+            text="Cadastre-se"
+            action={() => goTo('SignUp')}
+            size={{ width: 106, height: 16 }}
+            color={globalStyles.colors.linkColor}
+            style={styles.signUpAreaButton}
+          />
+        </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 }
 
