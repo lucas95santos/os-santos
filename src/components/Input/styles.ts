@@ -7,6 +7,8 @@ interface StyleProps {
 }
 
 const styles = (props: StyleProps) => StyleSheet.create({
+  containerInput: {
+  },
   input: {
     width: '100%',
     height: 48,
@@ -21,6 +23,25 @@ const styles = (props: StyleProps) => StyleSheet.create({
   },
   inputFocus: {
     borderColor: globalStyles.colors.inputBorderColorFocus
+  },
+  inputError: {
+    borderColor: globalStyles.colors.dangerColor,
+  },
+  errorContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  iconError: {
+    fontSize: 18,
+    color: globalStyles.colors.dangerColor,
+    marginTop: 2
+  },
+  errorText: {
+    color: globalStyles.colors.dangerColor,
+    marginTop: 8,
+    marginLeft: 8,
+    fontFamily: 'Poppins_400Regular',
+    fontSize: 14
   }
 });
 

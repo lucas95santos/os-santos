@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    height: Dimensions.get('window').height + 40,
+    height: Dimensions.get('window').height + 30,
     paddingTop: 40 + Constant.statusBarHeight,
     padding: 32,
     alignItems: 'center'
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     marginTop: 64
   },
   formInput: {
-    marginBottom: 32
+    marginBottom: 32,
   },
   formButton: {
     marginTop: 48
