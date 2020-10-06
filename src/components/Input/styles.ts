@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 // global styles
 import globalStyles from '../../styles/global';
 
@@ -41,7 +41,8 @@ const styles = (props: StyleProps) => StyleSheet.create({
     marginTop: 8,
     marginLeft: 8,
     fontFamily: 'Poppins_400Regular',
-    fontSize: 14
+    fontSize: 14,
+    maxWidth: Dimensions.get("window").width * 0.75
   }
 });
 

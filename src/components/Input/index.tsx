@@ -4,8 +4,6 @@ import { TextInput, TextInputProps, View, Text } from 'react-native';
 import { MaterialIcons as Icon } from '@expo/vector-icons';
 // styles
 import styles from './styles';
-// global styles
-import globalStyles from '../../styles/global';
 
 interface Props extends TextInputProps {
   placeholder?: string;
