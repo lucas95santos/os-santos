@@ -12,6 +12,7 @@ const globalStyles = {
     textColor: '#616161',
     // input
     inputBackgroundColor: '#FFFFFF',
+    inputDisabledColor: '#EEEEEE',
     inputTextColor: '#616161',
     inputPlaceholderColor: '#999999',
     inputBorderColor: '#DDDDDD',

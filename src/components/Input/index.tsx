@@ -10,6 +10,7 @@ interface Props extends TextInputProps {
   style?: object;
   value: any;
   multiline?: boolean;
+  disabled?: boolean;
   error?: string | null;
 }
 
@@ -28,6 +29,7 @@ const Input: React.RefForwardingComponent<InputRef, InputProps> = (props, ref) =
     placeholder,
     value,
     multiline,
+    disabled,
     style,
     error,
     ...rest
@@ -43,7 +45,8 @@ const Input: React.RefForwardingComponent<InputRef, InputProps> = (props, ref) =
         style={[
           styles(styleProps).input,
           focused ? styles(styleProps).inputFocus : null,
-          error ? styles(styleProps).inputError : null
+          error ? styles(styleProps).inputError : null,
+          disabled ? styles(styleProps).inputDisabled : null,
         ]}
         placeholder={placeholder}
         value={value}

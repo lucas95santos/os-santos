@@ -5,7 +5,7 @@ import globalStyles from '../../styles/global';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.5,
+    flex: 1,
     width: '100%',
     maxHeight: 240,
     backgroundColor: globalStyles.colors.headerColor,

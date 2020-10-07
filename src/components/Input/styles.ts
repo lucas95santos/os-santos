@@ -8,6 +8,7 @@ interface StyleProps {
 
 const styles = (props: StyleProps) => StyleSheet.create({
   containerInput: {
+    width: '100%'
   },
   input: {
     width: '100%',
@@ -26,6 +27,10 @@ const styles = (props: StyleProps) => StyleSheet.create({
   },
   inputError: {
     borderColor: globalStyles.colors.dangerColor,
+  },
+  inputDisabled: {
+    backgroundColor: globalStyles.colors.inputDisabledColor,
+    color: globalStyles.colors.inputPlaceholderColor
   },
   errorContainer: {
     flexDirection: 'row',

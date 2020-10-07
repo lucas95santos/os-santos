@@ -1,8 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
+  scrollView: {
     flex: 1
+  },
+  container: {
+    flex: 1,
   },
   mainContent: {
     flex: 1,
@@ -14,8 +17,7 @@ const styles = StyleSheet.create({
     marginBottom: 24
   },
   formButton: {
-    position: 'absolute',
-    bottom: 32
+    marginTop: 48
   }
 });
 
