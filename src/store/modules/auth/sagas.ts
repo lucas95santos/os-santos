@@ -1,5 +1,5 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
-import { Alert } from 'react-native';
+import { Alert, ToastAndroid } from 'react-native';
 // services
 import api from '../../../services/api';
 // import history from '../../../services/history';
@@ -24,6 +24,7 @@ export function* signIn({ payload }: any) {
     // }
 
     yield put(signInSuccess(token, user));
+    ToastAndroid.show('Bem vindo', 1);
 
     // history.push('/dashboard');
     // Alert.alert('Sucesso', `Bem vindo(a), ${user.name}`);

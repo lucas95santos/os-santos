@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
 import { View, TextInput, ScrollView, KeyboardAvoidingView } from 'react-native';
 // redux
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
+// action
+import { updateUserRequest } from '../../store/modules/user/actions';
 // validation
 import * as Yup from 'yup';
 import { Formik } from 'formik';
@@ -13,12 +15,21 @@ import globalStyles from '../../styles/global';
 // styles
 import styles from './styles';
 
+interface FormData {
+  firstName: string;
+  lastName: string;
+  phone: string;
+}
+
 const Account: React.FunctionComponent = () => {
   const lastNameRef = useRef<TextInput>(null);
   const emailRef = useRef<TextInput>(null);
   const phoneRef = useRef<TextInput>(null);
 
   const profile = useSelector((state: RootState) => state.user.profile);
+  const token = useSelector((state: RootState) => state.auth.token);
+
+  const dispatch = useDispatch();
 
   const accountSchema = Yup.object().shape({
     firstName: Yup.string().min(3, 'Mínimo de 3 letras para o nome'),
@@ -27,8 +38,12 @@ const Account: React.FunctionComponent = () => {
     phone: Yup.string()
   });
 
-  const handleSaveInfo = () => {
-    // TODO: criar lógica para salvar os dados do usuário
+  const handleSaveInfo = ({ firstName, lastName, phone }: FormData) => {
+    try {
+      dispatch(updateUserRequest(firstName, lastName, phone, token!));
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -47,7 +62,7 @@ const Account: React.FunctionComponent = () => {
               phone: profile.phone || ''
             }}
             validationSchema={accountSchema}
-            onSubmit={values => console.log(values)}
+            onSubmit={values => handleSaveInfo(values)}
           >
             {({ handleChange, handleSubmit, values, errors, touched }) => (
               <View style={styles.mainContent}>

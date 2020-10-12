@@ -1,6 +1,6 @@
 import produce from 'immer';
 
-interface Profile {
+export interface Profile {
   createdAt: string;
   email: string;
   firstName: string;
@@ -8,7 +8,6 @@ interface Profile {
   lastName: string;
   phone: string;
   updatedAt: string;
-
 }
 
 export interface UserState {
@@ -28,6 +27,11 @@ export default function user(state = INITIAL_STATE, action: any) {
     case '@auth/SIGN_OUT': {
       return produce(state, draft => {
           draft.profile = null;
+      });
+    }
+    case '@user/UPDATE_USER_SUCCESS': {
+      return produce(state, draft => {
+          draft.profile = action.payload.user;
       });
     }
     default:
