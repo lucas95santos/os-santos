@@ -27,7 +27,7 @@ const Orders: React.FunctionComponent<OrderProps> = (props) => {
   return (
     <View style={styles.container}>
       <Header
-        title="Ordens"
+        screenTitle="Ordens"
         hasMenu={false}
       />
       <View style={styles.mainContent}>

@@ -19,8 +19,8 @@ const ChangePassword: React.FunctionComponent = () => {
   return (
     <View style={styles.container}>
       <Header
-        title="Alterar Senha"
-        hasMenu={false}
+        screenTitle="Alterar Senha"
+        hasMenu
       />
       <View style={styles.mainContent}>
         <Input

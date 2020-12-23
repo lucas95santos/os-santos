@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
 // hooks
 import useDateTime from '../../hooks/useDateTime';
-// components
-import Menu from '../Menu';
 // global styles
 import globalStyles from '../../styles/global';
 // styles
@@ -15,7 +13,8 @@ import { Feather as Icon } from '@expo/vector-icons';
 import generatingGreetings from '../../utils/generateGreetings';
 
 interface Props {
-  title: string;
+  title?: string;
+  screenTitle?: string;
   hasMenu: boolean;
 }
 
@@ -23,15 +22,14 @@ type HeaderProps = Props;
 
 const Header: React.FunctionComponent<HeaderProps> = (props) => {
   // props
-  const { title, hasMenu } = props;
+  const { title, screenTitle, hasMenu } = props;
   // states
   const [date, time] = useDateTime();
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const navigation = useNavigation();
 
   const handleMenu = () => {
-    setMenuOpen(true)
+    navigation.dispatch(DrawerActions.toggleDrawer());
   }
 
   const goBack = () => {
@@ -58,9 +56,17 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
           <Image source={require('../../assets/images/logo_horizontal.png')} />
         </View>
         <View style={styles.infoArea}>
-          <Text style={styles.title}>
-            {hasMenu ? `${generatingGreetings(time)}, ${title}` : title}
-          </Text>
+          {title && (
+            <Text style={styles.title}>
+              {`${generatingGreetings(time)}, ${title}`}
+            </Text>
+          )}
+
+          {screenTitle && (
+            <Text style={styles.title}>
+              {screenTitle}
+            </Text>
+          )}
           <View style={styles.infoAreaDetails}>
             <View style={styles.infoAreaDetailsItem}>
               <Icon name="calendar" size={16} color={`${globalStyles.colors.iconColor}`} />
@@ -74,7 +80,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
         </View>
       </View>
 
-      <Menu showMenu={menuOpen} handleMenu={setMenuOpen} />
+      {/* <Menu showMenu={menuOpen} handleMenu={setMenuOpen} /> */}
     </>
   );
 }

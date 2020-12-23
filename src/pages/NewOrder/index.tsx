@@ -14,7 +14,7 @@ const NewOrder: React.FunctionComponent<NewOrderProps> = (props) => {
   return (
     <View style={styles.container}>
       <Header
-        title="Nova Ordem"
+        screenTitle="Nova Ordem"
         hasMenu={false}
       />
       <View style={styles.mainContent}></View>

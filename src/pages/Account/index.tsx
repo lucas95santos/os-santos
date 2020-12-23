@@ -49,8 +49,8 @@ const Account: React.FunctionComponent = () => {
   return (
     <View style={styles.container}>
       <Header
-        title="Conta"
-        hasMenu={false}
+        screenTitle="Conta"
+        hasMenu
       />
       <ScrollView style={styles.scrollView}>
         <KeyboardAvoidingView behavior="height">

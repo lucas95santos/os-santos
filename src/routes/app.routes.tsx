@@ -2,11 +2,11 @@ import React from 'react';
 import { Easing } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+// components
+import CustomDrawerContent from '../components/Menu';
 // pages
 import {
-  SignIn,
-  SignUp,
-  ResetPassword,
   Home,
   Orders,
   NewOrder,
@@ -18,6 +18,7 @@ import {
 import globalStyles from '../styles/global';
 
 const AppStack = createStackNavigator();
+const AppDrawer = createDrawerNavigator();
 
 const config: any = {
   animation: 'spring',
@@ -39,6 +40,47 @@ const closeConfig: any = {
   },
 };
 
+const HomeDrawer = () => {
+  return (
+    <AppDrawer.Navigator
+      initialRouteName="Home"
+      drawerContent={CustomDrawerContent}
+      drawerStyle={{
+        backgroundColor: globalStyles.colors.headerColor
+      }}
+    >
+      <AppDrawer.Screen
+        name="Home"
+        component={Home}
+        options={{
+          title: "Home"
+        }}
+      />
+      <AppDrawer.Screen
+        name="Account"
+        component={Account}
+        options={{
+          title: "Conta"
+        }}
+      />
+      <AppDrawer.Screen
+        name="ChangePassword"
+        component={ChangePassword}
+        options={{
+          title: "Alterar Senha"
+        }}
+      />
+      <AppDrawer.Screen
+        name="Questions"
+        component={Questions}
+        options={{
+          title: "Dúvidas"
+        }}
+      />
+    </AppDrawer.Navigator>
+  );
+}
+
 export const AppRoutes = () => {
   return (
     <NavigationContainer>
@@ -56,12 +98,9 @@ export const AppRoutes = () => {
           }
         }}
       >
-        <AppStack.Screen name="Home" component={Home} />
+        <AppStack.Screen name="HomeDrawer" component={HomeDrawer} />
         <AppStack.Screen name="Orders" component={Orders} />
         <AppStack.Screen name="NewOrder" component={NewOrder} />
-        <AppStack.Screen name="Account" component={Account} />
-        <AppStack.Screen name="ChangePassword" component={ChangePassword} />
-        <AppStack.Screen name="Questions" component={Questions} />
       </AppStack.Navigator>
     </NavigationContainer>
   );

@@ -17,8 +17,8 @@ const Questions: React.FunctionComponent = () => {
   return (
     <View style={styles.container}>
       <Header
-        title="Dúvidas"
-        hasMenu={false}
+        screenTitle="Dúvidas"
+        hasMenu
       />
       <View style={styles.mainContent}>
         <Input
